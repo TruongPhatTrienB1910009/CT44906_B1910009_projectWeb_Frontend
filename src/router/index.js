@@ -4,11 +4,17 @@ import NotFound from "@/views/NotFound.vue";
 import User from "@/views/User.vue";
 import notesEdit from "@/views/notesEdit.vue";
 import notesAdd from "@/views/notesAdd.vue";
+import register from "@/views/register.vue";
 const routes = [
     {
         path: "/",
         name: "user",
         component: User,
+    },
+    {
+        path: "/register",
+        name: "register",
+        component: register,
     },
     {
         path: "/notes",

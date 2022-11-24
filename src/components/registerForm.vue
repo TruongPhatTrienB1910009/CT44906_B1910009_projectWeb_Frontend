@@ -1,5 +1,5 @@
 <template>
-    <Form @submit="SignIn">
+    <Form @submit="SignUp">
         <div class="form-group">
             <label for="email">E-mail</label>
             <Field name="email" type="email" class="form-control" v-model="userLocal.email" />
@@ -11,9 +11,14 @@
             <ErrorMessage name="password" class="error-feedback" />
         </div>
         <div class="form-group">
-            <button class="btn btn-primary">Đăng Nhập</button>
-            <button type="button" class="ml-2 btn btn-danger" @click="gotoSignUp">
-                Đăng Ký
+            <label for="confirmPassword">Xác Nhận Lại Mật Khẩu</label>
+            <Field name="confirmPassword" type="password" class="form-control" v-model="userLocal.confirmPassword" />
+            <ErrorMessage name="confirmPassword" class="error-feedback" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Đăng Ký</button>
+            <button type="button" class="ml-2 btn btn-danger" @click="gotoSignIn">
+                Đăng Nhập
             </button>
         </div>
     </Form>
@@ -38,12 +43,12 @@ export default {
         };
     },
     methods: {
-        SignIn() {
+        SignUp() {
             console.log(this.userLocal);
             this.$emit("submit:user", this.userLocal);
         },
-        gotoSignUp(){
-            this.$router.push({ name: "register" });
+        gotoSignIn(){
+            this.$router.push({ name: "user" });    
         }
     },
 };
