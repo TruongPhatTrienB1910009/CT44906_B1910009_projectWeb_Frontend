@@ -8,14 +8,14 @@
                 Danh bạ
                 <i class="fas fa-address-book"></i>
             </h4>
-            <ContactList v-if="filteredContactsCount > 0" :contacts="filteredContacts"
+            <ContactList v-if="filteredContactsCount > 0" :notes="filteredContacts"
                 v-model:activeIndex="activeIndex" />
             <p v-else>Không có liên hệ nào.</p>
             <div class="mt-3 row justify-content-around align-items-center">
                 <button class="btn btn-sm btn-primary" @click="refreshList()">
                     <i class="fas fa-redo"></i> Làm mới
                 </button>
-                <button class="btn btn-sm btn-success" @click="goToAddContact">
+                <button class="btn btn-sm btn-success" @click="goToAddNote">
                     <i class="fas fa-plus"></i> Thêm mới
                 </button>
                 <button class="btn btn-sm btn-danger" @click="removeAllContacts">
@@ -26,12 +26,12 @@
         <div class="mt-3 col-md-6">
             <div v-if="activeContact">
                 <h4>
-                    Chi tiết Liên hệ
+                    Chi Tiết Ghi Chú
                     <i class="fas fa-address-card"></i>
                 </h4>
-                <ContactCard :contact="activeContact" />
+                <ContactCard :note="activeContact" />
                 <router-link :to="{
-                    name: 'contact.edit',
+                    name: 'note.edit',
                     params: { id: activeContact._id },
                 }">
                     <span class="mt-2 badge badge-warning">
@@ -42,11 +42,12 @@
         </div>
     </div>
 </template>
+
 <script>
-import ContactCard from "@/components/ContactCard.vue";
+import ContactCard from "@/components/notesCard.vue";
 import InputSearch from "@/components/InputSearch.vue";
-import ContactList from "@/components/ContactList.vue";
-import ContactService from "@/services/contact.service";
+import ContactList from "@/components/notesList.vue";
+import noteService from "@/services/note.service";
 export default {
     components: {
         ContactCard,
@@ -56,7 +57,7 @@ export default {
 
     data() {
         return {
-            contacts: [],
+            notes: [],
             activeIndex: -1,
             searchText: "",
         };
@@ -71,15 +72,16 @@ export default {
     computed: {
         // Chuyển các đối tượng contact thành chuỗi để tiện cho tìm kiếm.
         contactStrings() {
-            return this.contacts.map((contact) => {
-                const { name, email, address, phone } = contact;
-                return [name, email, address, phone].join("");
+            return this.notes.map((note) => {
+                const { title, content } = note;
+                return [title, content].join("");
             });
         },
         // Trả về các contact có chứa thông tin cần tìm kiếm.
         filteredContacts() {
-            if (!this.searchText) return this.contacts;
-            return this.contacts.filter((_contact, index) =>
+            console.log(this.searchText);
+            if (!this.searchText) return this.notes;
+            return this.notes.filter((_contact, index) =>
                 this.contactStrings[index].includes(this.searchText)
             );
         },
@@ -94,7 +96,7 @@ export default {
     methods: {
         async retrieveContacts() {
             try {
-                this.contacts = await ContactService.getAll();
+                this.notes = await noteService.getAll();
             } catch (error) {
                 console.log(error);
             }
@@ -106,15 +108,15 @@ export default {
         async removeAllContacts() {
             if (confirm("Bạn muốn xóa tất cả Liên hệ?")) {
                 try {
-                    await ContactService.deleteAll();
+                    await noteService.deleteAll();
                     this.refreshList();
                 } catch (error) {
                     console.log(error);
                 }
             }
         },
-        goToAddContact() {
-            this.$router.push({ name: "contact.add" });
+        goToAddNote() {
+            this.$router.push({ name: "note.add" });
         },
     },
     mounted() {

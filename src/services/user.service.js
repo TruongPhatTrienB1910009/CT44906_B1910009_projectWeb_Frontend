@@ -1,6 +1,6 @@
 import createApiClient from "./api.service";
-class ContactService {
-    constructor(baseUrl = "/api/contacts") {
+class userService {
+    constructor(baseUrl = "/api/myapp") {
         this.api = createApiClient(baseUrl);
     }
     async create(data) {
@@ -10,4 +10,4 @@ class ContactService {
         return (await this.api.get(`/${email}`)).data;
     }
 }
-export default new ContactService();
+export default new userService();

@@ -24,7 +24,7 @@ export default {
             try {
                 await userService.get(this.user.email);
                 this.message = "Đăng nhập thành công.";
-                this.$router.push({ name: "contactbook" });
+                this.$router.push({ name: "notes" });
             } catch (error) {
                 console.log(error);
             }

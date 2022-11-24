@@ -1,13 +1,13 @@
 <template>
-    <div v-if="contact" class="page">
-        <h4>Hiệu chỉnh Liên hệ</h4>
-        <ContactForm :contact="contact" @submit:contact="updateContact" @delete:contact="deleteContact" />
+    <div v-if="note" class="page">
+        <h4>Chỉnh Sửa Ghi Chú</h4>
+        <ContactForm :note="note" @submit:note="updateContact" @delete:note="deleteContact" />
         <p>{{ message }}</p>
     </div>
 </template>
 <script>
-import ContactForm from "@/components/ContactForm.vue";
-import ContactService from "@/services/contact.service";
+import ContactForm from "@/components/notesForm.vue";
+import ContactService from "@/services/note.service";
 export default {
     components: {
         ContactForm,
@@ -17,14 +17,14 @@ export default {
     },
     data() {
         return {
-            contact: null,
+            note: null,
             message: "",
         };
     },
     methods: {
         async getContact(id) {
             try {
-                this.contact = await ContactService.get(id);
+                this.note = await ContactService.get(id);
             } catch (error) {
                 console.log(error);
                 // Chuyển sang trang NotFound đồng thời giữ cho URL không đổi
@@ -40,7 +40,7 @@ export default {
         },
         async updateContact(data) {
             try {
-                await ContactService.update(this.contact._id, data);
+                await ContactService.update(this.note._id, data);
                 this.message = "Liên hệ được cập nhật thành công.";
                 console.log(data);
             } catch (error) {
@@ -50,8 +50,8 @@ export default {
         async deleteContact() {
             if (confirm("Bạn muốn xóa Liên hệ này?")) {
                 try {
-                    await ContactService.delete(this.contact._id);
-                    this.$router.push({ name: "contactbook" });
+                    await ContactService.delete(this.note._id);
+                    this.$router.push({ name: "notes" });
                 } catch (error) {
                     console.log(error);
                 }
