@@ -2,7 +2,7 @@
     <nav  class="navbar navbar-expand navbar-dark bg-dark justify-content-center ">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="/notes" class="navbar-brand">GHI CHÚ</a>
+                <a href="#" @click="gotoHome" class="navbar-brand">GHI CHÚ</a>
             </li>
             <li class="nav-item">
                 <a href="#" @click="gotoAdd" class="navbar-brand">THÊM MỚI</a>
@@ -20,7 +20,17 @@
 export default {
     methods: {
         gotoAdd(){
-            this.$router.push({ name: "note.add" });
+            console.log(location.href);
+            if (location.href !== "http://localhost:3001/") {
+                this.$router.push({ name: "note.add" });
+            }
+        },
+
+        gotoHome(){
+            console.log(location.href);
+            if (location.href !== "http://localhost:3001/") {
+                this.$router.push({ name: "notes" });
+            }
         }
     }
 }

@@ -5,12 +5,11 @@
         </div>
         <div class="mt-3 col-md-6">
             <h4>
-                Danh bạ
-                <i class="fas fa-address-book"></i>
+                Ghi Chú
             </h4>
             <ContactList v-if="filteredContactsCount > 0" :notes="filteredContacts"
                 v-model:activeIndex="activeIndex" />
-            <p v-else>Không có liên hệ nào.</p>
+            <p v-else>Không có ghi chú nào.</p>
             <div class="mt-3 row justify-content-around align-items-center">
                 <button class="btn btn-sm btn-primary" @click="refreshList()">
                     <i class="fas fa-redo"></i> Làm mới
@@ -27,7 +26,6 @@
             <div v-if="activeContact">
                 <h4>
                     Chi Tiết Ghi Chú
-                    <i class="fas fa-address-card"></i>
                 </h4>
                 <ContactCard :note="activeContact" />
                 <router-link :to="{
@@ -35,7 +33,7 @@
                     params: { id: activeContact._id },
                 }">
                     <span class="mt-2 badge badge-warning">
-                        <i class="fas fa-edit"></i> Hiệu chỉnh</span>
+                        <i class="fas fa-edit"></i> Hiệu chỉnh </span>
                 </router-link>
 
             </div>

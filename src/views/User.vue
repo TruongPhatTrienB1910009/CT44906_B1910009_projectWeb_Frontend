@@ -22,9 +22,10 @@ export default {
         async signIn(data) {
             console.log(data);
             try {
-                await userService.get(this.user.email);
-                this.message = "Đăng nhập thành công.";
-                this.$router.push({ name: "notes" });
+                this.user = await userService.get(this.user.email);
+                if(data.email == this.user.email && data.password == this.user.password) {
+                    this.$router.push({ name: "notes" });
+                }
             } catch (error) {
                 console.log(error);
             }
