@@ -1,13 +1,31 @@
 <template>
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <a href="/notes" class="navbar-brand">Ứng Dụng Sổ Ghi Chú Cá Nhân</a>
-        <div class="mr-auto navbar-nav">
+    <nav  class="navbar navbar-expand navbar-dark bg-dark justify-content-center ">
+        <ul class="navbar-nav">
             <li class="nav-item">
-                <router-link :to="{ name: 'notes' }" class="nav-link">
-                    Ghi Chú
-                    <i class="fas fa-address-book"></i>
+                <a href="/notes" class="navbar-brand">GHI CHÚ</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" @click="gotoAdd" class="navbar-brand">THÊM MỚI</a>
+            </li>
+            <li class="nav-item">
+                <router-link :to="{ name: 'user' }" class="navbar-brand">
+                    ĐĂNG XUẤT
                 </router-link>
             </li>
-        </div>
+        </ul>
     </nav>
 </template>
+
+<script>
+export default {
+    methods: {
+        gotoAdd(){
+            this.$router.push({ name: "note.add" });
+        }
+    }
+}
+</script>
+
+<style scoped>
+    @import "@/assets/main.css";
+</style>

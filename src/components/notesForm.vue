@@ -39,29 +39,17 @@ export default {
         note: { type: Object, required: true }
     },
     data() {
-        // const contactFormSchema = yup.object().shape({
-        //     name: yup
-        //         .string()
-        //         .required("Tên phải có giá trị.")
-        //         .min(2, "Tên phải ít nhất 2 ký tự.")
-        //         .max(50, "Tên có nhiều nhất 50 ký tự."),
-        //     email: yup
-        //         .string()
-        //         .email("E-mail không đúng.")
-        //         .max(50, "E-mail tối đa 50 ký tự."),
-        //     address: yup.string().max(100, "Địa chỉ tối đa 100 ký tự."),
-        //     phone: yup
-        //         .string()
-        //         .matches(
-        //             /((09|03|07|08|05)+([0-9]{8})\b)/g,
-        //             "Số điện thoại không hợp lệ."
-        //         ),
-        // });
+        const contactFormSchema = yup.object().shape({
+            title: yup
+                .string()
+                .required("Tiêu đề phải có giá trị.")
+                .min(2, "Tiêu đề phải ít nhất 2 ký tự.")
+                .max(50, "Tiêu đề có nhiều nhất 50 ký tự."),
+            content: yup.string()
+                .min(10, "Nội dung tối thiểu 10 ký tự."),
+        });
         return {
-            // Chúng ta sẽ không muốn hiệu chỉnh props, nên tạo biến cục bộ
-            // contactLocal để liên kết với các input trên form
             noteLocal: this.note,
-            // contactFormSchema,
         };
     },
     methods: {
@@ -75,5 +63,6 @@ export default {
 };
 </script>
 <style scoped>
-@import "@/assets/form.css";
+    @import "@/assets/form.css";
+    @import "@/assets/main.css";
 </style>

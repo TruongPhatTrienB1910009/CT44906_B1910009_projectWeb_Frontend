@@ -1,6 +1,6 @@
 <template>
     <div class="page row">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <InputSearch v-model="searchText" />
         </div>
         <div class="mt-3 col-md-6">
@@ -15,9 +15,9 @@
                 <button class="btn btn-sm btn-primary" @click="refreshList()">
                     <i class="fas fa-redo"></i> Làm mới
                 </button>
-                <button class="btn btn-sm btn-success" @click="goToAddNote">
+                <!-- <button class="btn btn-sm btn-success" @click="goToAddNote">
                     <i class="fas fa-plus"></i> Thêm mới
-                </button>
+                </button> -->
                 <button class="btn btn-sm btn-danger" @click="removeAllContacts">
                     <i class="fas fa-trash"></i> Xóa tất cả
                 </button>
@@ -115,9 +115,9 @@ export default {
                 }
             }
         },
-        goToAddNote() {
-            this.$router.push({ name: "note.add" });
-        },
+        // goToAddNote() {
+        //     this.$router.push({ name: "note.add" });
+        // },
     },
     mounted() {
         this.refreshList();
@@ -128,6 +128,6 @@ export default {
 <style scoped>
 .page {
     text-align: left;
-    max-width: 750px;
+    max-width: 100%;
 }
 </style>

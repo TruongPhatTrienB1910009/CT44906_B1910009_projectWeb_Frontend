@@ -1,25 +1,43 @@
 <script>
 import AppHeader from "@/components/AppHeader.vue";
+import AppFooter from "@/components/AppFooter.vue";
 export default {
   components: {
     AppHeader,
+    AppFooter
   },
 }
 </script>
   
 <template>
   <div id="app">
-    <AppHeader />
+      <AppHeader />
     <div class="container mt-3">
       <router-view />
     </div>
+      <AppFooter />
   </div>
 </template>
   
 <style>
 .page {
-  max-width: 400px;
+  max-width: 500px;
   margin: auto;
+}
+
+.container.mt-3{
+  height: 80vh;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #343A40;
+  color: white;
+  text-align: center;
+  height: 50px;
 }
 </style>
     

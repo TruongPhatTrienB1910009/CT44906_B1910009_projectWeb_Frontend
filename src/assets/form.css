@@ -34,3 +34,19 @@ label {
 .error-feedback {
     color: red;
 }
+
+h4 {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: rgb(138, 54, 54);
+}
+
+
+.page {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
