@@ -24,7 +24,7 @@ export default {
             try {
                 this.user = await userService.get(this.user.email);
                 if(data.email == this.user.email && data.password == this.user.password) {
-                    this.$router.push({ name: "notes" });
+                    this.$router.push({ name: "books" });
                 }
             } catch (error) {
                 console.log(error);

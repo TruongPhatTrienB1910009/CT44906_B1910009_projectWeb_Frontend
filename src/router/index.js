@@ -1,9 +1,9 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Notes from "@/views/Notes.vue";
+import Books from "@/views/Notes.vue";
 import NotFound from "@/views/NotFound.vue";
 import User from "@/views/User.vue";
-import notesEdit from "@/views/notesEdit.vue";
-import notesAdd from "@/views/notesAdd.vue";
+import bookEdit from "@/views/notesEdit.vue";
+import bookAdd from "@/views/notesAdd.vue";
 import register from "@/views/register.vue";
 const routes = [
     {
@@ -17,9 +17,9 @@ const routes = [
         component: register,
     },
     {
-        path: "/notes",
-        name: "notes",
-        component: Notes,
+        path: "/books",
+        name: "books",
+        component: Books,
     },
     {
         path: "/:pathMatch(.*)*",
@@ -27,15 +27,15 @@ const routes = [
         component: NotFound,
     },
     {
-        path: "/notes/:id",
-        name: "note.edit",
-        component: notesEdit,
+        path: "/books/:id",
+        name: "book.edit",
+        component: bookEdit,
         props: true // Truyền các biến trong $route.params vào làm props
     },
     {
-        path: "/notes/add",
-        name: "note.add",
-        component: notesAdd,
+        path: "/books/add",
+        name: "book.add",
+        component: bookAdd,
     },
 ];
 const router = createRouter({

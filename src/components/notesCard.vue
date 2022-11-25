@@ -8,15 +8,23 @@ export default {
 <template>
     <div>
         <div class="p-1">
-            <strong>Tiêu Đề:</strong>
-            {{ note.title }}
+            <strong>Tên Sách: </strong>
+            {{ note.name }}
         </div>
         <div class="p-1">
-            <strong>Nội Dung:</strong>
+            <strong>Tác Giả: </strong>
+            {{ note.author }}
+        </div>
+        <div class="p-1">
+            <strong>Link Sách: </strong>
+            <a href="{{ note.linkBook }}">{{ note.linkBook }}</a>
+        </div>
+        <div class="p-1">
+            <strong>Nội Dung Sơ Lược: </strong>
             {{ note.content }}
         </div>
         <div class="p-1">
-            <strong>Nội Dung Quan Trọng:&nbsp;</strong>
+            <strong>Quan Trọng:&nbsp;</strong>
             <i v-if="note.important" class="fas fa-check"></i>
             <i v-else class="fas fa-times"></i>
         </div>

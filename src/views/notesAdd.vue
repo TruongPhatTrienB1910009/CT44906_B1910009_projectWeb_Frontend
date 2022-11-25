@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <h4>Thêm ghi chú</h4>
-        <ContactForm :note="note" @submit:note="addContact" />
+        <ContactForm :book="book" @submit:book="addContact" />
         <p>{{ message }}</p>
     </div>
 </template>
@@ -14,7 +14,7 @@ export default {
     },
     data() {
         return {
-            note: {},
+            book: {},
             message: "",
         };
     },
@@ -22,7 +22,7 @@ export default {
         async addContact(data) {
             try {
                 await notesService.create(data);
-                this.message = "Liên hệ được tạo mới thành công.";
+                this.message = "Thông tin sách được tạo mới thành công.";
             } catch (error) {
                 console.log(error);
             }

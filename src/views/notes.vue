@@ -29,7 +29,7 @@
                 </h4>
                 <ContactCard :note="activeContact" />
                 <router-link :to="{
-                    name: 'note.edit',
+                    name: 'book.edit',
                     params: { id: activeContact._id },
                 }">
                     <span class="mt-2 badge badge-warning">

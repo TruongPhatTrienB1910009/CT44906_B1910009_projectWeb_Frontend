@@ -16,7 +16,7 @@ export default {
     <ul class="list-group">
         <li class="list-group-item" v-for="(note, index) in notes" :key="note._id"
             :class="{ active: index === activeIndex }" @click="updateActiveIndex(index)">
-            {{ note.title }}
+            {{ note.name }}
         </li>
     </ul>
 </template>

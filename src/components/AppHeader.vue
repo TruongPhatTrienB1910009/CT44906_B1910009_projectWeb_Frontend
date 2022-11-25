@@ -22,14 +22,14 @@ export default {
         gotoAdd(){
             console.log(location.href);
             if (location.href !== "http://localhost:3001/") {
-                this.$router.push({ name: "note.add" });
+                this.$router.push({ name: "book.add" });
             }
         },
 
         gotoHome(){
             console.log(location.href);
             if (location.href !== "http://localhost:3001/") {
-                this.$router.push({ name: "notes" });
+                this.$router.push({ name: "books" });
             }
         }
     }
