@@ -3,18 +3,20 @@
         props: {
             note: { type: Object, required: true },
         },
-        data() {
-            return {
-                href: this.note.linkBook,
-                src: this.note.linkImage,
+        computed: {
+            retriveSrc(){
+                return this.note.linkImage;
+            },
+            retriveHref(){
+                return this.note.linkBook;
             }
-        },
+        }
     };
 </script>
 <template>
     <div>
         <div class="p-1">
-            <img :src="src" width="200" height="300">
+            <img id="href" :src="retriveSrc" width="200" height="300">
         </div>
         <div class="p-1">
             <strong>Tên Sách: </strong>
@@ -26,7 +28,7 @@
         </div>
         <div class="p-1">
             <strong>Link Sách: </strong>
-            <a :href="href">{{ note.linkBook }}</a>
+            <a :href="retriveHref">{{ note.linkBook }}</a>
         </div>
         <div class="p-1">
             <strong>Nội Dung Sơ Lược: </strong>
