@@ -5,8 +5,8 @@
         },
         data() {
             return {
-                href: this.note.linkImage,
-                src: this.note.linkBook
+                href: this.note.linkBook,
+                src: this.note.linkImage,
             }
         },
     };
@@ -14,7 +14,7 @@
 <template>
     <div>
         <div class="p-1">
-            <img id="href" :src="href" width="200" height="300">
+            <img :src="src" width="200" height="300">
         </div>
         <div class="p-1">
             <strong>Tên Sách: </strong>
@@ -26,7 +26,7 @@
         </div>
         <div class="p-1">
             <strong>Link Sách: </strong>
-            <a :href="src">{{ note.linkBook }}</a>
+            <a :href="href">{{ note.linkBook }}</a>
         </div>
         <div class="p-1">
             <strong>Nội Dung Sơ Lược: </strong>

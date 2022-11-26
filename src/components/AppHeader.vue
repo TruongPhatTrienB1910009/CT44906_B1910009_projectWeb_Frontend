@@ -1,8 +1,8 @@
 <template>
-    <nav class="header navbar navbar-expand navbar-dark bg-dark position-fixed">
+    <nav class="header navbar navbar-expand position-fixed">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="#" @click="gotoHome" class="navbar-brand">GHI CHÚ</a>
+                <a href="#" @click="gotoHome" class="navbar-brand">TRANG CHỦ</a>
             </li>
             <li class="nav-item">
                 <a href="#" @click="gotoAdd" class="navbar-brand">THÊM MỚI</a>
@@ -35,7 +35,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-    @import "@/assets/main.css";
-</style>

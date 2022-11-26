@@ -5,7 +5,7 @@
         </div>
         <div class="mt-3 col-md-6">
             <h4>
-                Ghi Chú
+                SÁCH
             </h4>
             <ContactList v-if="filteredContactsCount > 0" :notes="filteredContacts"
                 v-model:activeIndex="activeIndex" />
@@ -14,9 +14,6 @@
                 <button class="btn btn-sm btn-primary" @click="refreshList()">
                     <i class="fas fa-redo"></i> Làm mới
                 </button>
-                <!-- <button class="btn btn-sm btn-success" @click="goToAddNote">
-                    <i class="fas fa-plus"></i> Thêm mới
-                </button> -->
                 <button class="btn btn-sm btn-danger" @click="removeAllContacts">
                     <i class="fas fa-trash"></i> Xóa tất cả
                 </button>
