@@ -1,6 +1,6 @@
 <template>
     <div v-if="book" class="page">
-        <h4>Chỉnh Sửa Ghi Chú</h4>
+        <h4>Chỉnh Sửa Thông Tin Sách</h4>
         <ContactForm :book="book" @submit:book="updateContact" @delete:book="deleteContact" />
         <p>{{ message }}</p>
     </div>
@@ -41,14 +41,14 @@ export default {
         async updateContact(data) {
             try {
                 await ContactService.update(this.book._id, data);
-                this.message = "Liên hệ được cập nhật thành công.";
+                this.message = "Thông tin sách được cập nhật thành công.";
                 console.log(data);
             } catch (error) {
                 console.log(error);
             }
         },
         async deleteContact() {
-            if (confirm("Bạn muốn xóa Liên hệ này?")) {
+            if (confirm("Bạn muốn xóa Sách này?")) {
                 try {
                     await ContactService.delete(this.book._id);
                     this.$router.push({ name: "books" });

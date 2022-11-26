@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <h4>Đăng Nhập</h4>
+        <!-- <h4>Đăng Nhập</h4> -->
         <userForm :user="user" @submit:user="signIn" />
         <p>{{ message }}</p>
     </div>
@@ -33,6 +33,3 @@ export default {
     },
 };
 </script>
-<style scoped>
-    @import "@/assets/form.css";    
-</style>

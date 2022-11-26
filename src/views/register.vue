@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <h4>Đăng Ký</h4>
+        <!-- <h4>Đăng Ký</h4> -->
         <registerForm :user="user" @submit:user="signUp" />
         <p>{{ message }}</p>
     </div>
@@ -37,5 +37,32 @@ export default {
 </script>
 
 <style scoped>
-    @import "@/assets/form.css";
+    h4 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .card.mb-3 {
+        margin-top: 50px;
+        width: 100%;
+        padding: 30px;
+    }
+   .rounded-t-5 {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
+
+    img {
+        padding: 20px;
+        width: 130%;
+    }
+
+    @media (min-width: 992px) {
+        .rounded-tr-lg-0 {
+            border-top-right-radius: 0;
+        }
+
+        .rounded-bl-lg-5 {
+            border-bottom-left-radius: 0.5rem;
+        }
+    }
 </style>

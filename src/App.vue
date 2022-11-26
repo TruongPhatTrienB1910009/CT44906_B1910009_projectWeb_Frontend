@@ -74,8 +74,9 @@ li.nav-item a.navbar-brand:hover {
 h4 {
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 30px;
   color: rgb(138, 54, 54);
 }
 

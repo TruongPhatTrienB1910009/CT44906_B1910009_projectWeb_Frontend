@@ -1,5 +1,5 @@
 <template>
-    <Form @submit="submitbook">
+    <Form @submit="submitbook" :validation-schema="bookFormSchema">
         <div class="form-group">
             <label for="name">Tên Sách: </label>
             <Field name="name" type="text" class="form-control" v-model="bookLocal.name" />
@@ -54,17 +54,22 @@ export default {
         book: { type: Object, required: true }
     },
     data() {
-        const contactFormSchema = yup.object().shape({
-            // title: yup
-            //     .string()
-            //     .required("Tiêu đề phải có giá trị.")
-            //     .min(2, "Tiêu đề phải ít nhất 2 ký tự.")
-            //     .max(50, "Tiêu đề có nhiều nhất 50 ký tự."),
-            // content: yup.string()
-            //     .min(10, "Nội dung tối thiểu 10 ký tự."),
+        const bookFormSchema = yup.object({
+            name: yup
+                .string()
+                .required("Tên Sách phải có giá trị."),
+            author: yup
+                .string()
+                .required("Tên Tác giả không được để trống."),
+            content: yup
+                .string()
+                .required("Phải có nội dung sơ lược")
+                .min(10, "Nội dung phải có tối thiểu 10 ký tự.")
+            
         });
         return {
             bookLocal: this.book,
+            bookFormSchema,
         };
     },
     methods: {

@@ -21,14 +21,14 @@ export default {
     methods: {
         gotoAdd(){
             console.log(location.href);
-            if (location.href !== "http://127.0.0.1:3001/" && location.href !== "http://localhost:3001/") {
+            if (location.href !== "http://127.0.0.1:3001/" && location.href !== "http://localhost:3001/" && location.href !== "http://127.0.0.1:3001/register" && location.href !== "http://localhost:3001/register") {
                 this.$router.push({ name: "book.add" });
             }
         },
 
         gotoHome(){
             console.log(location.href);
-            if (location.href !== "http://127.0.0.1:3001/" && location.href !== "http://localhost:3001/") {
+            if (location.href !== "http://127.0.0.1:3001/" && location.href !== "http://localhost:3001/" && location.href !== "http://127.0.0.1:3001/register" && location.href !== "http://localhost:3001/register") {
                 this.$router.push({ name: "books" });
             }
         }

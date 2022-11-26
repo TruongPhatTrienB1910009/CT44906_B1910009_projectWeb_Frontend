@@ -101,7 +101,7 @@ export default {
             this.activeIndex = -1;
         },
         async removeAllContacts() {
-            if (confirm("Bạn muốn xóa tất cả Liên hệ?")) {
+            if (confirm("Bạn muốn xóa tất cả Thông Tin Sách?")) {
                 try {
                     await noteService.deleteAll();
                     this.refreshList();
@@ -110,9 +110,6 @@ export default {
                 }
             }
         },
-        // goToAddNote() {
-        //     this.$router.push({ name: "note.add" });
-        // },
     },
     mounted() {
         this.refreshList();
