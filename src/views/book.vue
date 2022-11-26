@@ -25,7 +25,7 @@
         <div class="mt-3 col-md-6">
             <div v-if="activeContact">
                 <h4>
-                    Chi Tiết Ghi Chú
+                    CHI TIẾT SÁCH
                 </h4>
                 <ContactCard :note="activeContact" />
                 <router-link :to="{
@@ -33,7 +33,7 @@
                     params: { id: activeContact._id },
                 }">
                     <span class="mt-2 badge badge-warning">
-                        <i class="fas fa-edit"></i> Hiệu chỉnh </span>
+                        <i class="fas fa-edit"></i> Chỉnh Sửa Thông Tin Sách </span>
                 </router-link>
 
             </div>
@@ -42,10 +42,10 @@
 </template>
 
 <script>
-import ContactCard from "@/components/notesCard.vue";
+import ContactCard from "@/components/bookCard.vue";
 import InputSearch from "@/components/InputSearch.vue";
-import ContactList from "@/components/notesList.vue";
-import noteService from "@/services/note.service";
+import ContactList from "@/components/bookList.vue";
+import noteService from "@/services/book.service";
 export default {
     components: {
         ContactCard,

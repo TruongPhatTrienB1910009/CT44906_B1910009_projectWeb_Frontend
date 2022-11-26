@@ -6,8 +6,8 @@
     </div>
 </template>
 <script>
-import ContactForm from "@/components/notesForm.vue";
-import notesService from "@/services/note.service";
+import ContactForm from "@/components/bookForm.vue";
+import notesService from "@/services/book.service";
 export default {
     components: {
         ContactForm,

@@ -21,8 +21,12 @@ export default {
     methods: {
         async signUp(data) {
             try {
-                await userService.create(data);
-                this.message = "Đăng ký thành công.";
+                if(data.password === data.confirmPassword){
+                    await userService.create(data);
+                    this.message = "Đăng ký thành công.";
+                }else{
+                    this.message = "Mật khẩu không trùng khớp.";
+                }
                 // this.$router.push({ name: "user" });
             } catch (error) {
                 console.log(error);

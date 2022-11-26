@@ -1,19 +1,29 @@
 <template>
     <Form @submit="submitbook">
         <div class="form-group">
-            <label for="name">Tên Sách:</label>
+            <label for="name">Tên Sách: </label>
             <Field name="name" type="text" class="form-control" v-model="bookLocal.name" />
             <ErrorMessage name="name" class="error-feedback" />
         </div>
         <div class="form-group">
-            <label for="author">Tác Giả</label>
+            <label for="author">Tác Giả: </label>
             <Field name="author" type="text" class="form-control" v-model="bookLocal.author" />
             <ErrorMessage name="author" class="error-feedback" />
         </div>
         <div class="form-group">
-            <label for="content">Nội Dung Sơ Lược</label>
+            <label for="content">Nội Dung Sơ Lược: </label>
             <Field name="content" type="text" class="form-control" v-model="bookLocal.content" />
             <ErrorMessage name="content" class="error-feedback" />
+        </div>
+        <div class="form-group">
+            <label for="image">Link Hình Ảnh: </label>
+            <Field name="image" type="text" class="form-control" v-model="bookLocal.linkImage" />
+            <ErrorMessage name="image" class="error-feedback" />
+        </div>
+        <div class="form-group">
+            <label for="linkBook">Link Sách: </label>
+            <Field name="linkBook" type="text" class="form-control" v-model="bookLocal.linkBook" />
+            <ErrorMessage name="linkBook" class="error-feedback" />
         </div>
         <div class="form-group form-check">
             <input name="important" type="checkbox" class="form-check-input" v-model="bookLocal.important" />

@@ -12,7 +12,7 @@ export default {
 <template>
   <div id="app">
       <AppHeader />
-    <div class="container mt-3">
+    <div class="container mt">
       <router-view />
     </div>
       <AppFooter />
@@ -25,8 +25,9 @@ export default {
   margin: auto;
 }
 
-.container.mt-3{
-  height: 80vh;
+.container.mt{
+  margin-bottom: 80px;
+  margin-top: 80px;
 }
 
 .footer {
@@ -39,5 +40,14 @@ export default {
   text-align: center;
   height: 50px;
 }
+
+.header {
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #343A40;
+}
+
 </style>
     

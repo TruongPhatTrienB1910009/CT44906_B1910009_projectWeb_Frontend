@@ -1,5 +1,5 @@
 <template>
-    <nav  class="navbar navbar-expand navbar-dark bg-dark justify-content-center ">
+    <nav class="header navbar navbar-expand navbar-dark bg-dark position-fixed">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a href="#" @click="gotoHome" class="navbar-brand">GHI CHÚ</a>
@@ -21,14 +21,14 @@ export default {
     methods: {
         gotoAdd(){
             console.log(location.href);
-            if (location.href !== "http://localhost:3001/") {
+            if (location.href !== "http://127.0.0.1:3001/" && location.href !== "http://localhost:3001/") {
                 this.$router.push({ name: "book.add" });
             }
         },
 
         gotoHome(){
             console.log(location.href);
-            if (location.href !== "http://localhost:3001/") {
+            if (location.href !== "http://127.0.0.1:3001/" && location.href !== "http://localhost:3001/") {
                 this.$router.push({ name: "books" });
             }
         }

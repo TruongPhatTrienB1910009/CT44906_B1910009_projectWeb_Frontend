@@ -1,5 +1,5 @@
 <template>
-    <Form @submit="SignUp">
+    <Form @submit="SignUp" :validation-schema="registerFormSchema">
         <div class="form-group">
             <label for="email">E-mail</label>
             <Field name="email" type="email" class="form-control" v-model="userLocal.email" />
@@ -38,6 +38,25 @@ export default {
         user: { type: Object, required: true }
     },
     data() {
+        const registerFormSchema = yup.object({
+            email: yup
+                .string()
+                .required("E-mail phải có giá trị.")
+                .email("E-mail không đúng.")
+                .max(50, "E-mail tối đa 50 ký tự."),
+            password: yup
+                .string()
+                .required("Mật khẩu phải có giá trị.")
+                .min(6, "Mật khẩu tối thiểu 6 ký tự."),
+            confirmPassword: yup
+                .string()
+                .required("Mật khẩu phải có giá trị.")
+                .min(6, "Mật khẩu tối thiểu 6 ký tự.")
+        });
+        return {
+            userLocal: this.user,
+            registerFormSchema,
+        };
         return {
             userLocal: this.user,
         };

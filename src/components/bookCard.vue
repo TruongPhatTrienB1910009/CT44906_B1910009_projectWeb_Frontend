@@ -1,12 +1,21 @@
 <script>
-export default {
-    props: {
-        note: { type: Object, required: true },
-    },
-};
+    export default {
+        props: {
+            note: { type: Object, required: true },
+        },
+        data() {
+            return {
+                href: this.note.linkImage,
+                src: this.note.linkBook
+            }
+        },
+    };
 </script>
 <template>
     <div>
+        <div class="p-1">
+            <img id="href" :src="href" width="200" height="300">
+        </div>
         <div class="p-1">
             <strong>Tên Sách: </strong>
             {{ note.name }}
@@ -17,7 +26,7 @@ export default {
         </div>
         <div class="p-1">
             <strong>Link Sách: </strong>
-            <a href="{{ note.linkBook }}">{{ note.linkBook }}</a>
+            <a :href="src">{{ note.linkBook }}</a>
         </div>
         <div class="p-1">
             <strong>Nội Dung Sơ Lược: </strong>

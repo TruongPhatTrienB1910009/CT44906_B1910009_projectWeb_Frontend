@@ -1,9 +1,9 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Books from "@/views/Notes.vue";
+import Books from "@/views/book.vue";
 import NotFound from "@/views/NotFound.vue";
 import User from "@/views/User.vue";
-import bookEdit from "@/views/notesEdit.vue";
-import bookAdd from "@/views/notesAdd.vue";
+import bookEdit from "@/views/bookEdit.vue";
+import bookAdd from "@/views/bookAdd.vue";
 import register from "@/views/register.vue";
 const routes = [
     {
