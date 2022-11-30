@@ -7,7 +7,7 @@
             <h4>
                 SÁCH
             </h4>
-            <ContactList v-if="filteredContactsCount > 0" :notes="filteredContacts"
+            <ContactList v-if="filteredContactsCount > 0" :books="filteredContacts"
                 v-model:activeIndex="activeIndex" />
             <p v-else>Không có ghi chú nào.</p>
             <div class="mt-3 row justify-content-around align-items-center">
@@ -24,7 +24,7 @@
                 <h4>
                     CHI TIẾT SÁCH
                 </h4>
-                <ContactCard :note="activeContact" />
+                <ContactCard :book="activeContact" />
                 <router-link :to="{
                     name: 'book.edit',
                     params: { id: activeContact._id },
@@ -42,7 +42,7 @@
 import ContactCard from "@/components/bookCard.vue";
 import InputSearch from "@/components/InputSearch.vue";
 import ContactList from "@/components/bookList.vue";
-import noteService from "@/services/book.service";
+import bookService from "@/services/book.service";
 export default {
     components: {
         ContactCard,
@@ -52,7 +52,7 @@ export default {
 
     data() {
         return {
-            notes: [],
+            books: [],
             activeIndex: -1,
             searchText: "",
         };
@@ -67,16 +67,16 @@ export default {
     computed: {
         // Chuyển các đối tượng contact thành chuỗi để tiện cho tìm kiếm.
         contactStrings() {
-            return this.notes.map((note) => {
-                const { title, content } = note;
+            return this.books.map((book) => {
+                const { title, content } = book;
                 return [title, content].join("");
             });
         },
         // Trả về các contact có chứa thông tin cần tìm kiếm.
         filteredContacts() {
             console.log(this.searchText);
-            if (!this.searchText) return this.notes;
-            return this.notes.filter((_contact, index) =>
+            if (!this.searchText) return this.books;
+            return this.books.filter((_contact, index) =>
                 this.contactStrings[index].includes(this.searchText)
             );
         },
@@ -91,7 +91,7 @@ export default {
     methods: {
         async retrieveContacts() {
             try {
-                this.notes = await noteService.getAll();
+                this.books = await bookService.getAll();
             } catch (error) {
                 console.log(error);
             }
@@ -103,7 +103,7 @@ export default {
         async removeAllContacts() {
             if (confirm("Bạn muốn xóa tất cả Thông Tin Sách?")) {
                 try {
-                    await noteService.deleteAll();
+                    await bookService.deleteAll();
                     this.refreshList();
                 } catch (error) {
                     console.log(error);

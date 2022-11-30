@@ -1,13 +1,13 @@
 <template>
     <div class="page">
         <h4>Thêm Sách Mới</h4>
-        <ContactForm :book="book" @submit:book="addContact" />
+        <ContactForm :book="book" @submit:book="addBook" />
         <p>{{ message }}</p>
     </div>
 </template>
 <script>
 import ContactForm from "@/components/bookForm.vue";
-import notesService from "@/services/book.service";
+import bookService from "@/services/book.service";
 export default {
     components: {
         ContactForm,
@@ -19,9 +19,9 @@ export default {
         };
     },
     methods: {
-        async addContact(data) {
+        async addBook(data) {
             try {
-                await notesService.create(data);
+                await bookService.create(data);
                 this.message = "Thông tin sách được tạo mới thành công.";
             } catch (error) {
                 console.log(error);

@@ -1,16 +1,16 @@
 <template>
     <div v-if="book" class="page">
         <h4>Chỉnh Sửa Thông Tin Sách</h4>
-        <ContactForm :book="book" @submit:book="updateContact" @delete:book="deleteContact" />
+        <bookForm :book="book" @submit:book="updateBook" @delete:book="deleteBook" />
         <p>{{ message }}</p>
     </div>
 </template>
 <script>
-import ContactForm from "@/components/bookForm.vue";
-import ContactService from "@/services/book.service";
+import bookForm from "@/components/bookForm.vue";
+import bookService from "@/services/book.service";
 export default {
     components: {
-        ContactForm,
+        bookForm,
     },
     props: {
         id: { type: String, required: true },
@@ -22,9 +22,9 @@ export default {
         };
     },
     methods: {
-        async getContact(id) {
+        async getBook(id) {
             try {
-                this.book = await ContactService.get(id);
+                this.book = await bookService.get(id);
             } catch (error) {
                 console.log(error);
                 // Chuyển sang trang NotFound đồng thời giữ cho URL không đổi
@@ -38,19 +38,19 @@ export default {
                 });
             }
         },
-        async updateContact(data) {
+        async updateBook(data) {
             try {
-                await ContactService.update(this.book._id, data);
+                await bookService.update(this.book._id, data);
                 this.message = "Thông tin sách được cập nhật thành công.";
                 console.log(data);
             } catch (error) {
                 console.log(error);
             }
         },
-        async deleteContact() {
+        async deleteBook() {
             if (confirm("Bạn muốn xóa Sách này?")) {
                 try {
-                    await ContactService.delete(this.book._id);
+                    await bookService.delete(this.book._id);
                     this.$router.push({ name: "books" });
                 } catch (error) {
                     console.log(error);
@@ -59,7 +59,7 @@ export default {
         },
     },
     created() {
-        this.getContact(this.id);
+        this.getBook(this.id);
         this.message = "";
     },
 };

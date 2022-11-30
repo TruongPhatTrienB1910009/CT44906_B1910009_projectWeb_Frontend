@@ -1,14 +1,14 @@
 <script>
     export default {
         props: {
-            note: { type: Object, required: true },
+            book: { type: Object, required: true },
         },
         computed: {
             retriveSrc(){
-                return this.note.linkImage;
+                return this.book.linkImage;
             },
             retriveHref(){
-                return this.note.linkBook;
+                return this.book.linkBook;
             }
         }
     };
@@ -20,23 +20,23 @@
         </div>
         <div class="p-1">
             <strong>Tên Sách: </strong>
-            {{ note.name }}
+            {{ book.name }}
         </div>
         <div class="p-1">
             <strong>Tác Giả: </strong>
-            {{ note.author }}
+            {{ book.author }}
         </div>
         <div class="p-1">
             <strong>Link Sách: </strong>
-            <a :href="retriveHref">{{ note.linkBook }}</a>
+            <a :href="retriveHref">{{ book.linkBook }}</a>
         </div>
         <div class="p-1">
             <strong>Nội Dung Sơ Lược: </strong>
-            {{ note.content }}
+            {{ book.content }}
         </div>
         <div class="p-1">
             <strong>Quan Trọng:&nbsp;</strong>
-            <i v-if="note.important" class="fas fa-check"></i>
+            <i v-if="book.important" class="fas fa-check"></i>
             <i v-else class="fas fa-times"></i>
         </div>
     </div>
